@@ -249,7 +249,7 @@ export const Audioaulas = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.history.back()}
+                onClick={handleBack}
                 className="p-2 hover:bg-gray-800 text-white"
               >
                 <ArrowLeft className="h-5 w-5" />

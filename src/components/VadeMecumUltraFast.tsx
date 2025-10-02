@@ -1141,78 +1141,107 @@ const VadeMecumUltraFast: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid gap-4 grid-cols-2 max-w-3xl w-full">
+          <motion.div 
+            className="grid gap-4 grid-cols-2 max-w-3xl w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             {/* Constituição Federal */}
-            <Card className="cursor-pointer group bg-gradient-to-br from-yellow-500/20 to-amber-600/20 border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-lg transition-all duration-300 h-[130px] sm:h-[140px] flex items-center" onClick={() => {
-            const cf88Code = {
-              id: 'cf88',
-              name: 'CF/88',
-              fullName: 'Constituição Federal',
-              description: 'Carta Magna do Brasil',
-              icon: 'Crown',
-              color: 'bg-gradient-to-br from-yellow-500/20 to-amber-600/30 border border-yellow-500/20 backdrop-blur-sm',
-              textColor: 'text-yellow-100'
-            };
-            loadArticles(cf88Code);
-          }}>
-              <CardContent className="p-4 text-center w-full">
-                <div className="w-10 h-10 mx-auto bg-yellow-500/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
-                  <Crown className="h-5 w-5 text-yellow-500" />
-                </div>
-                <h3 className="text-base font-bold text-yellow-600 dark:text-yellow-500 mb-1">Constituição Federal</h3>
-                <p className="text-muted-foreground mb-2 text-xs">Carta Magna do Brasil - Lei fundamental</p>
-                <div className="flex items-center justify-center text-yellow-600/70 dark:text-yellow-500/70 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
-                  <span className="text-xs">Explore agora</span>
-                  <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <Card className="cursor-pointer group bg-gradient-to-br from-yellow-500/20 to-amber-600/20 border-yellow-500/30 hover:border-yellow-500/50 hover:shadow-lg transition-all duration-300 h-[130px] sm:h-[140px] flex items-center" onClick={() => {
+              const cf88Code = {
+                id: 'cf88',
+                name: 'CF/88',
+                fullName: 'Constituição Federal',
+                description: 'Carta Magna do Brasil',
+                icon: 'Crown',
+                color: 'bg-gradient-to-br from-yellow-500/20 to-amber-600/30 border border-yellow-500/20 backdrop-blur-sm',
+                textColor: 'text-yellow-100'
+              };
+              loadArticles(cf88Code);
+            }}>
+                <CardContent className="p-4 text-center w-full">
+                  <div className="w-10 h-10 mx-auto bg-yellow-500/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <Crown className="h-5 w-5 text-yellow-500" />
+                  </div>
+                  <h3 className="text-base font-bold text-yellow-600 dark:text-yellow-500 mb-1 line-clamp-1">Constituição Federal</h3>
+                  <p className="text-muted-foreground mb-2 text-xs line-clamp-2">Carta Magna do Brasil - Lei fundamental</p>
+                  <div className="flex items-center justify-center text-yellow-600/70 dark:text-yellow-500/70 group-hover:text-yellow-600 dark:group-hover:text-yellow-500 transition-colors">
+                    <span className="text-xs">Explore agora</span>
+                    <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Códigos & Leis */}
-            <Card className="cursor-pointer group bg-gradient-to-br from-primary/20 to-primary/10 border-primary/30 hover:border-primary/50 h-[130px] sm:h-[140px] flex items-center" onClick={() => selectCategory('articles')}>
-              <CardContent className="p-4 text-center w-full">
-                <div className="w-10 h-10 mx-auto bg-primary/20 rounded-xl flex items-center justify-center mb-2">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                </div>
-                <h3 className="text-base font-bold text-primary mb-1">Códigos & Leis</h3>
-                <p className="text-muted-foreground mb-2 text-xs">Acesse os principais códigos do ordenamento jurídico brasileiro</p>
-                <div className="flex items-center justify-center text-primary/70 group-hover:text-primary transition-colors">
-                  <span className="text-xs">Explore agora</span>
-                  <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            >
+              <Card className="cursor-pointer group bg-gradient-to-br from-primary/20 to-primary/10 border-primary/30 hover:border-primary/50 h-[130px] sm:h-[140px] flex items-center" onClick={() => selectCategory('articles')}>
+                <CardContent className="p-4 text-center w-full">
+                  <div className="w-10 h-10 mx-auto bg-primary/20 rounded-xl flex items-center justify-center mb-2">
+                    <BookOpen className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-base font-bold text-primary mb-1 line-clamp-1">Códigos & Leis</h3>
+                  <p className="text-muted-foreground mb-2 text-xs line-clamp-2">Acesse os principais códigos do ordenamento jurídico</p>
+                  <div className="flex items-center justify-center text-primary/70 group-hover:text-primary transition-colors">
+                    <span className="text-xs">Explore agora</span>
+                    <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Estatutos */}
-            <Card className="cursor-pointer group bg-gradient-to-br from-accent-legal/20 to-accent-legal/10 border-accent-legal/30 hover:border-accent-legal/50 hover:shadow-lg transition-all duration-300 h-[130px] sm:h-[140px] flex items-center" onClick={() => selectCategory('statutes')}>
-              <CardContent className="p-4 text-center w-full px-[17px]">
-                <div className="w-10 h-10 mx-auto bg-accent-legal/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
-                  <Scroll className="h-5 w-5 text-accent-legal" />
-                </div>
-                <h3 className="text-base font-bold text-accent-legal mb-1">Estatutos</h3>
-                <p className="text-muted-foreground mb-2 text-xs">Consulte estatutos e leis especiais importantes</p>
-                <div className="flex items-center justify-center text-accent-legal/70 group-hover:text-accent-legal transition-colors">
-                  <span className="text-xs">Explore agora</span>
-                  <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+            >
+              <Card className="cursor-pointer group bg-gradient-to-br from-accent-legal/20 to-accent-legal/10 border-accent-legal/30 hover:border-accent-legal/50 hover:shadow-lg transition-all duration-300 h-[130px] sm:h-[140px] flex items-center" onClick={() => selectCategory('statutes')}>
+                <CardContent className="p-4 text-center w-full">
+                  <div className="w-10 h-10 mx-auto bg-accent-legal/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <Scroll className="h-5 w-5 text-accent-legal" />
+                  </div>
+                  <h3 className="text-base font-bold text-accent-legal mb-1 line-clamp-1">Estatutos</h3>
+                  <p className="text-muted-foreground mb-2 text-xs line-clamp-2">Consulte estatutos e leis especiais</p>
+                  <div className="flex items-center justify-center text-accent-legal/70 group-hover:text-accent-legal transition-colors">
+                    <span className="text-xs">Explore agora</span>
+                    <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Súmulas */}
-            <Card className="cursor-pointer group bg-gradient-to-br from-purple-500/20 to-purple-700/20 border-purple-500/30 hover:border-purple-500/50 hover:shadow-lg transition-all duration-300 h-[130px] sm:h-[140px] flex items-center" onClick={() => selectCategory('sumulas')}>
-              <CardContent className="p-4 text-center w-full">
-                <div className="w-10 h-10 mx-auto bg-purple-500/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
-                  <Scale className="h-5 w-5 text-purple-500" />
-                </div>
-                <h3 className="text-base font-bold text-purple-500 mb-1">Súmulas</h3>
-                <p className="text-muted-foreground mb-2 text-xs">Súmulas do STF e STJ</p>
-                <div className="flex items-center justify-center text-purple-500/70 group-hover:text-purple-500 transition-colors">
-                  <span className="text-xs">Explore agora</span>
-                  <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+            >
+              <Card className="cursor-pointer group bg-gradient-to-br from-purple-500/20 to-purple-700/20 border-purple-500/30 hover:border-purple-500/50 hover:shadow-lg transition-all duration-300 h-[130px] sm:h-[140px] flex items-center" onClick={() => selectCategory('sumulas')}>
+                <CardContent className="p-4 text-center w-full">
+                  <div className="w-10 h-10 mx-auto bg-purple-500/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <Scale className="h-5 w-5 text-purple-500" />
+                  </div>
+                  <h3 className="text-base font-bold text-purple-500 mb-1 line-clamp-1">Súmulas</h3>
+                  <p className="text-muted-foreground mb-2 text-xs line-clamp-2">Súmulas do STF e STJ</p>
+                  <div className="flex items-center justify-center text-purple-500/70 group-hover:text-purple-500 transition-colors">
+                    <span className="text-xs">Explore agora</span>
+                    <ChevronRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </div>;
   }
