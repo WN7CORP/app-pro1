@@ -8,11 +8,13 @@ import { useAudioPlayer } from '@/context/AudioPlayerContext';
 import { useAudioProgress } from '@/context/AudioProgressContext';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AudioPlayerScreen } from '@/components/AudioPlayerScreen';
+import { useNavigation } from '@/context/NavigationContext';
 
 export const Audioaulas = () => {
   const { areas, audioaulas, loading, error } = useAudioaulas();
   const { playAudio, currentAudio, isPlaying } = useAudioPlayer();
   const { favorites, listened, completed, isFavorite } = useAudioProgress();
+  const { setCurrentFunction } = useNavigation();
   const [selectedArea, setSelectedArea] = useState<AreaData | null>(null);
   const [selectedTema, setSelectedTema] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -59,6 +61,8 @@ export const Audioaulas = () => {
       setSelectedTema(null);
     } else if (selectedArea) {
       setSelectedArea(null);
+    } else {
+      setCurrentFunction(null);
     }
   };
 
